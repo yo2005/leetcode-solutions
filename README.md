@@ -1,3 +1,3 @@
 # leetcode-solutions
 <br>
-Here are the solutions of problems solved on leetcode by me
+Here are the solutions of problems solved on leetcode by me.
