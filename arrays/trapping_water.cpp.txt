@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int trap(vector<int>& height) {
+        int n = height.size();
+        int left = 0;           // Left pointer
+        int right = n - 1;      // Right pointer
+        int leftMax = 0;        // Max height on left side
+        int rightMax = 0;       // Max height on right side
+        int trappedWater = 0;   // Result
+
+        while (left <= right) {
+            if (height[left] <= height[right]) {
+                // Left side is shorter or equal
+                if (height[left] >= leftMax) {
+                    leftMax = height[left]; // Update left max
+                } else {
+                    trappedWater += leftMax - height[left]; // Water trapped here
+                }
+                left++;
+            } else {
+                // Right side is shorter
+                if (height[right] >= rightMax) {
+                    rightMax = height[right]; // Update right max
+                } else {
+                    trappedWater += rightMax - height[right]; // Water trapped here
+                }
+                right--;
+            }
+        }
+        return trappedWater;
+    }
+};
